@@ -25,25 +25,25 @@ Aiemmalla oppitunnilla olin tehnyt tunnukset DigitalOceaniin ja samalla olin my�
 
 Virtuaalikoneen saa luotua DigitalOcean:ssa valitsemalla vasemmasta valikosta 'Droplets' ja sen jälkeen 'Create Droplet'. Vaihtoehtoinen tapa on käyttää ylhäällä näkyvää vihreää 'Create' -painiketta.
 
-![image](https://github.com/user-attachments/assets/fde5c835-127b-444f-a072-94f95e6712d9)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(2).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(2).png)
 
 Seuraavaksi määritetään virtuaalikone. Virtuaalikone kannattaa vuokrata yleensä mahdollisimman läheltä, jotta yhteydet toimii mahdollisimman nopeasti. 
 
 Päätin vuokrata tilan virtuaalikoneelle Amsterdamin AMS3 palvelimelta. Käyttöjärjestelmäksi valitsin tutun Debian ja uusimman 12 version, jota olen käyttänyt aiemminkin. Paketiksi valitsin edullisemman 4 taalan vaihtoehdon. 512 mb muistia, 1 cpu, 10 gb levytilaa ja 500 gb siirtokapasiteettia riittää vallan hyvin tämän tyyppisiin harjoitukseen. Konetta voi myös myöhemmin päivittää mikäli tulee tarvetta. 
 
-![image](https://github.com/user-attachments/assets/0ce3ed56-17b6-4b1d-9bc0-ab790575253a)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(3).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(3).png)
 
-![image](https://github.com/user-attachments/assets/ebf3779a-8ba5-4e46-91a5-fe63cb5a04a2)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(4).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(4).png)
 
-![image](https://github.com/user-attachments/assets/ffe90280-b813-436c-94dd-bdeb368951e2)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(5).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(5).png)
 
 Lopuksi piti vielä määrittää root-tunnuksen salasana ja hostname. Tämän jälkeen klikkasin 'Create Droplet', jolloin virtuaalikoneen luonti alkoi. Palvelu loi virtuaalikoneen alle minuutissa.  
 
-![image](https://github.com/user-attachments/assets/cfb5ebfa-0842-4401-b05c-d04efadfa484)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(6).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(6).png)
 
 Kun virtuaalikone oli luotu, dashboardissa näkyi luomani virtuaalikone ja sen ip-osoite. 
 
-![image](https://github.com/user-attachments/assets/ce6f27ad-773b-4c8a-a83c-770e7e992ed2)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(7).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(7).png)
 
 ### b) Tee alkutoimet omalla virtuaalipalvelimellasi: tulimuuri päälle, root-tunnus kiinni, ohjelmien päivitys.
 
@@ -58,66 +58,66 @@ Kun virtuaalikone oli luotu, dashboardissa näkyi luomani virtuaalikone ja sen i
 
 Muodostin SSH-etäyhteyden Debian käyttöjärjestelmän terminaalilla DigitalOceanin virtuaalikoneeseen, jonka olin luonut aiemmassa vaiheessa. SSH-yhteyden muodostin virtuaalikoneen julkisella ip-osoitteella. 
 
-![image](https://github.com/user-attachments/assets/ecb381c1-5f75-4458-8e2c-9250e946f5ef)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(8).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(8).png)
 
 Root-tunnus kannattaa poistaa käytöstä ja korvata se omalla tunnuksella. Siispä tein ensiksi oman tunnuksen virtuaalikoneeseen komennolla ```sudo adduser sami``` kuvassa näkyvillä määrityksillä. Tämän jälkeen lisäsin uuden käyttäjän sudoers-ryhmään komennolla  ```sudo adduser sami sudo```. Näin saatiin käyttäjälle 'sami' pääkäyttäjän oikeudet.
 
-![image](https://github.com/user-attachments/assets/fff956ec-5ad8-4a67-b110-a56924ad6089)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(9).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(9).png)
 
 Nyt pitäisi onnistua SSH etäyhteyden muodostus uudella käyttäjällä, joten kirjauden ulos root-käyttäjänä, komennolla ```exit```. SSH toimi hienosti käyttäjällä 'sami', joten seuraavaksi päätin lukita root-tunnuksen. Root-tunnuksen lukitus onnistui kommennolla  ``` sudo usermod --lock root```
 
-![image](https://github.com/user-attachments/assets/2946a86f-0888-4f54-aaeb-e8278d6289e0)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(10).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(10).png)
 
 Palomuuri on hyvä laittaa päälle, mutta ennen sitä ajoin vielä päivitykset Debianiin. 
 
-![image](https://github.com/user-attachments/assets/9f2ae2f0-f0e5-4f02-8511-b3b13def0a1e)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(11).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(11).png)
 
 Palomuurin asennus onnistui komennolla ```sudo apt-get install ufw```. Seuraavaksi avasin portin SSH:lle eli TCP-portti 22 auki komennolla ```sudo ufw allow 22/tcp ``` jonka jälkeen muuri päälle käskyllä  ```sudo ufw enable ```. Nyt on virtuaalikone suojattu, ainoastaan SSH:llä pääsee sisälle. Myöhemmin täytyy avata vielä http-portti 80 web-palvelimen liikenteelle.
 
-![image](https://github.com/user-attachments/assets/d7ff8609-d6c8-4e27-8f7d-270823edf7b5)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(12).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(12).png)
 
 Päivitin vielä asennutetut paketit komennolla ```sudo apt-get dist-upgrade``` jonka jälkeen uudelleen käynnistin virtuaalikoneen ```sudo systemctl reboot```-komennolla.
 
-![image](https://github.com/user-attachments/assets/f721a604-07e4-4bc4-a3a0-f6d2a28a0e12)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(13).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(13).png)
 
 Uudelleen käynnistyksen jälkeen kirjauduin uudestaan SSH:llä palvelimelle ja estin root-tunnukselta SSH-kirjautumisen komennolla ```sudoedit /etc/ssh/sshd_config```. Config-tiedostossa on kohta 'PermitRootLogin' jonka perään vaihdoin arvoksi 'no', aiemman 'yes'-arvon sijaan. Lopuksi tallensin tiedoston ja käynnistin vielä ssh servicen uudelleen komennolla ```sudo service ssh restart```.
 
-![image](https://github.com/user-attachments/assets/5eb64cfe-d39e-4562-8257-26419cce1c49)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(14).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(14).png)
 
-![image](https://github.com/user-attachments/assets/fd14c76b-c287-4bb4-90f2-31fb68bdb434)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(15).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(15).png)
 
 
 ### c) Asenna weppipalvelin omalle virtuaalipalvelimellesi. 
 
 Kirjauduin virtuaalipalvelimelle SSH-yhdeydellä omasta tietokoneesta. Päivitykset olin ajanut edeltävänä päivänä, joten käynnistin suoraan apachen asennuksen kommennolla ```sudo apt-get -y install apache2```
 
-![image](https://github.com/user-attachments/assets/15aeaba2-74d7-417b-94e2-abbc56e78285)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(16).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(16).png)
 
-![image](https://github.com/user-attachments/assets/cd355a19-72ed-49be-95d4-6208cf198a66)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(17).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(17).png)
 
 Apachen asennuksen jälkeen testasin että web-palvelin toimii ja näyttää oletussivun komennolla ```curl localhost```.
 
-![image](https://github.com/user-attachments/assets/e540996e-0908-4cd0-8f0b-7f2a0644b7d5)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(18).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(18).png)
 
 Seuraavaksi testasin sivun näkymistä julkisesti ja ennen sitä avoin http-portin palomuurin.
 
-![image](https://github.com/user-attachments/assets/ec62aa3e-8575-4e6d-8fe7-f50454c5fdd1)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(19).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(19).png)
 
 Laitoin virtuaalipalvelimen julkisen ip-osoitteen tietokoneeni Firefox-selaimeen ja Apachen oletussivu avautui hienosti.
 
-![image](https://github.com/user-attachments/assets/8cadc34f-c9d0-42db-b1ce-370d12d6ff82)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(20).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(20).png)
 
 Yhteydet toimii web-palvelimelle, joten seuraavaksi lähdin korvaamaan oletussivua, omalla sivulla. Ensiksi kokeilin nopeaa tapaa korvaten oletussivu kommennolla ```echo Maailma kuulee! |sudo tee /var/www/html/index.html```. Oletussivu päivitetty onnistuneesti ja Firefox-näytti päivityn sivun.
 
-![image](https://github.com/user-attachments/assets/1949d1a6-303e-43e4-b595-2954eb100c88)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(21).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(21).png)
 
 Sivu avautui hienosti myös kännykällä.
 
-![image](https://github.com/user-attachments/assets/1f630add-bb15-4f1b-a100-47918afbae4a)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(22).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(22).png)
 
 Lopuksi lisäsin hieman html-koodia oletussivulle komennolla ```sudoedit /var/www/html/index.html``` ja testailin sen näkyvyyttä tietokoneen Firefox-selaimella.
 
-![image](https://github.com/user-attachments/assets/8a6e89dc-0040-424e-ae59-cace48366145)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h4/h4%20%20(23).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h4/h4%20%20(23).png)
 
 
 ### Lähteet
