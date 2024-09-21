@@ -24,39 +24,40 @@
  
 ### a) Micro. Asenna micro-editori.
 - Micro-editorin asennus onnistui kommennolla: sudo apt-get -y install micro. Parametrin '-y' avulla asennusta saadaan nopeutettua, jolloin kaikkiin kehotettaisiin vastataan automaattisesti 'yes' (kyllä). 
- ![Screenshot from 2024-09-01 22-36-25](https://github.com/user-attachments/assets/9ab7ab98-ec62-434d-a065-cd1ae726f496)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(2).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(2).png)
 - Asennuksen jälkeen Micro-editori käynnistettiin komennolla 'micro'.
- ![image](https://github.com/user-attachments/assets/d2fe81a3-85a0-4ad8-b06f-be592f4f5ce3)
+ ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(3).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(3).png)
 ### b) Apt.
 - Valitsin komentoriviohjelmiksi htopin, treen, ja nmapin. Ohjelmien asennus samanaikaisesti onnistui kuvassa näkyvällä komennolla:
-   ![Screenshot from 2024-09-02 20-07-39](https://github.com/user-attachments/assets/0ca20529-680a-4b73-939a-c23bc23c39d1)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(4).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(4).png)
   - Htop on kätevä ohjelma tietokoneen resurssien tarkistamiseen. Ohjelma kertoo mm. cpu:n ja muistin kokonaiskäytön, sekä miten käynnissä olevat prosessit vievät resursseja. Mikäli halutaan optimoida koneen resursseja, on hyödyllistä selvittää mikä vie esim. eniten resursseja. Ohjelmalla on myös mahdollista sammuttaa ajossa olevia prosesseja. Ohessa kuvakaappaus, jossa prosessit järjestetty sen mukaan mikä vie vie eniten suoritintehoja. Ohjelma käynnistettu komennolla htop ilman parametreja.
-   ![Screenshot from 2024-09-02 20-16-04](https://github.com/user-attachments/assets/3d8f1efb-59ce-4178-a693-5b8dcf7e6be7)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(5).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(5).png)
   - Tree-komento luo puumaisen näkymän hakemisto rakenteesta. Tree-komentoa on mahdollista käyttää useammalla eri parametrillä. Kuvakaappauksen esimerkissä käytetty parametria joka näyttää vain hakemistot käyttäjän Sami kotihakemistossa.
-   ![Screenshot from 2024-09-02 20-24-02](https://github.com/user-attachments/assets/74d42101-cd85-4d44-b351-0bac611cc751)
+ ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(6).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(6).png)
   - Nmapin avulla on mahdollista tutkia verkkoa, skannata verkossa olevia laitteita sekä selvittää esimerkiksi verkossa olevien laitteiden avoimia portteja. Kuvakaappauksessa tutkittu traceroute parametrillä reittiä osoitteeseen omalta koneelta. Nmapin käytössä tulee noudattaa varovaisuutta. EDIT: Piilotettu kuvasta jälkikäteen ip-osoitetiedot tietoturvasyistä sekä lisätty tarkennus nmapin käyttöön.
-![nmapesimerkki](https://github.com/user-attachments/assets/f36fec21-f601-4b21-93ef-0dca4928e42d)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(7).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(7).png)
 
      
 ### c) FHS.
   - Oheisissa kuvakaappauksissa esitelty tehtävässä määritetyt kansiot kuvissa näkyvillä komennoilla. Viimeisessä kuvakaappauksessa esitelty osa yhden tiedoston sisällöstä cat-komennolla. 
-     ![image](https://github.com/user-attachments/assets/f803dbb8-ad75-474a-896b-52dd0e6e9101)
-     ![image](https://github.com/user-attachments/assets/4fe899a2-24af-4921-a1c2-1d34d5450f0d)
-     ![image](https://github.com/user-attachments/assets/bc63c7b4-2dbc-4792-8038-2637c2623315)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(8).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(8).png)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(9).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(9).png)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(10).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(10).png)
+
 ### d) The Friendly M.
   - Grep-komennolla tein kuvakaappauksissa näkyvät testit.
     - Sanan hakeminen tiedostosta, siten että ko. sana merkitään eri värillä.
-       ![Screenshot from 2024-09-02 21-33-22](https://github.com/user-attachments/assets/e103276a-54cf-406d-a4db-0c05801594f6)
+    ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(11).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(11).png)
     - Grep-kommennolla voidaan selvittää myös käytössä oleva verkkoadapteri, sekä sen ip-osoite kun se yhdistetään ip addr -komentoon putkella ("|").
-       ![Screenshot from 2024-09-02 21-37-01](https://github.com/user-attachments/assets/71146af5-6d88-4656-9b06-741f3fce15b4)
+     ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(12).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(12).png)
     - Sanan "debian" haku kotihakemistosta oheisella kommennolla.
-       ![image](https://github.com/user-attachments/assets/6af72aff-fb1a-4f5d-a655-74dfe32d1348)
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(13).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(13).png)
 ### e) Pipe. 
   - Putkella (pipe, "|") on mahdollista yhdistää useampia komentoja toisiinsa.
     - Pipen käyttäminen on esimerkiksi kätevää kun listataan hakemisto jossa paljon kansioita ja tiedostoja. Tällöin näytetään tiedostoja vain ruutu kerrallaan.
-       ![image](https://github.com/user-attachments/assets/69e35bfc-8d48-4676-8e00-974454f37096)
+     ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(14).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(14).png)
     - Tai vastaavasti hakemistojen ja tiedostojen listaus päinvastaisessa järjestyksessä, hyödyntäen sort-komentoa ls-kommennossa putken avulla.
-       ![image](https://github.com/user-attachments/assets/cd7b22d9-d79d-44f2-803b-049b59976638)
+      ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%20(15).png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%20(15).png)
 ### f) Rauta.    
 - Lswh -komentoa ei ollut aiemmin asennettu Debianiin, joten lswh -asennettiin ensiksi komennollla "sudo apt-get install -y lshw"
 - Tämän jälkeen päästiin ajamaan listaus laitteistosta komennolla sudo lshw -short -sanitize
@@ -171,7 +172,7 @@
 
 ### g) Vapaaehtoinen: Valitse muutama rivi lokeista. Tulkitse ja analysoi.
 - Debianin lokitietoja on mahdollista tarkistaa journalctl -kommennolla. Oheisessa esimerkissä tarkistettiin f-parametrillä viimeaikaisia tapahtumia järjestelmässä. Lokissa on nähtävissä aiemmassa tehtävässä tarvitun lshw-komennon asennus sekä laitteiston tietojen listaus lswh -kommennolla.
-  ![image](https://github.com/user-attachments/assets/190abb33-fe34-4dcd-951a-dcb432fd220b)
+ ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h2/h2-%2016.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h2/h2-%2016.png)
  
 
 ## Lähteet
