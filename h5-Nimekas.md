@@ -1,3 +1,4 @@
+- EDIT 24.9.24: Lisätty käyttöjärjestelmän tiedot kohtaan 'DigitalOceanin virtuaalikone pilvessä'
  
 #### Tietokone, jolla otettiin etäyhteys DigitalOceanin virtuaalikoneeseen:
 
@@ -10,6 +11,7 @@
 
 #### DigitalOceanin virtuaalikone pilvessä
 - 1 CPU, 512 MB memory, 10 GB SSD Disk, 500 GB transfer limit
+- Käyttöjärjestelmä Debian 12
 
 
 ### a) Kotisivu. Tee vähintään kolmen erillisen weppisivun kotisivu ja kopioi se näkymään palvelimellesi. Jos sinulla on oikea palvelin Internetissä, kannattaa käyttää sitä. Käytä name based virtual hosting tekniikkaa. Sivujen muokkaamisen pitää onnistua ilman pääkäyttäjän oikeuksia, niiden kopioiminen pääkäyttäjänä testisivun paikalle ei käy. Kotisivujen ei tarvitse olla hienoja, mutta niiden tulee olla validia HTML:ää ja linkittää toisiinsa.
