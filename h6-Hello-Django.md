@@ -40,7 +40,7 @@ Djangon asennuksen jälkeen tein Django-projektin nimellä 'sammyc0de' ja käynn
 
 Virtuaalikoneessani ei ole graafista käyttöliittymää joten testasin pääsyä toisesta koneesta, mutta en päässyt sivulle. Seuraavaksi aloin tutkimaan Django-manuaalia (https://docs.djangoproject.com/en/5.1/ref/django-admin/) jossa kerrottiin että localhost ip-osoite (127.0.0.1) ei ole saavutettavissa muista verkon koneista. Development serverin saa näkymään muille verkon koneille, laittamalla komennon ```./manage.py runserver``` perään koneen oma ip-osoite. Tässä tapauksessa se onnistui komennolla ```./manage.py runserver 192.168.1.100:8000``` 
 
-Tämän jälkeen sivu aukesi toisessa koneessa, mutta varoitteli vielä että kone ei ole sallittun listallla. Djangon ohjeesta (https://docs.djangoproject.com/en/5.0/ref/settings/#std-setting-ALLOWED_HOSTS) selvisi että settings-tiedostossa on erikseen määritetty kohta jossa sallitut koneet jotka pääsevät serverille.
+Tämän jälkeen sivu aukesi toisessa koneessa, mutta varoitteli vielä että kone ei ole sallittujen listallla. Djangon ohjeesta (https://docs.djangoproject.com/en/5.0/ref/settings/#std-setting-ALLOWED_HOSTS) selvisi että settings-tiedostossa on erikseen määritetty kohta jossa sallitut koneet.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a8.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a8.png)
 
@@ -54,7 +54,7 @@ Tämän jälkeen palvelimen uudellen käynnistys komennolla ```./manage.py runse
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a10.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a10.png)
 
-Palvelimeen ei päässyt vielä kirjautumaan, joten jatkoin Teron ohjeilla eteenpäin, päivittämällä tietokannnat. Sen jälkeen oli vuorossa uuden käyttäjän luonti, käyttäen apuna salasanan luonti komentoa. Kun käyttäjä oli luotu, laitoin palvelimen päälle ja kirjautuminen onnistui uudella käyttäjällä.
+Palvelimeen ei päässyt vielä kirjautumaan, joten jatkoin Teron ohjeilla eteenpäin, päivittämällä tietokannnat. Sen jälkeen oli vuorossa uuden käyttäjän luonti, käyttäen apuna salasanan luonti komentoa. Kun käyttäjä oli luotu, laitoin palvelimen päälle ja kirjautuminen onnistui uudella käyttäjällä. Tässä kohtaa oli hyvä lopettaa tältä päivältä (29.9.24).
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a11.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a11.png)
 
@@ -62,16 +62,15 @@ Palvelimeen ei päässyt vielä kirjautumaan, joten jatkoin Teron ohjeilla eteen
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a13.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a13.png)
 
-Seuraavaksi oli vuorossa ohjelman tekeminen Djangoon ja päätin tehdä ohjeissa näytetyn asiakasrekisterin, hieman soveltaen. Loin uuden crm-kansion ohjelmalle komennolla ```./manage.py startapp crm```,
-jonka jälkeen lisäsin settings.py tiedostoon crm-ohjelman.
+Jatkoin tehtävää seuraavana päivänä 30.9.24, laittamalla ensiksi virtuaalikoneen päälle ja koneeseen sisälle SSH-yhteydellä.  Päätin tehdä ohjeissa näytetyn asiakasrekisterin, hieman soveltaen. Loin uuden crm-kansion ohjelmalle komennolla ```./manage.py startapp crm```, jonka jälkeen lisäsin settings.py tiedostoon crm-ohjelman.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a14.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a14.png)
 
-Models.py tiedostoon määritin ohjelman 'modelit', komennolla ``` micro crm/models.py ```. Tiedoston luotiin Customers-luokka ja sen tietueet. Ohjeesta poiketen, sovelsin tässä kohtaa ja lisäsin muitakin kuin nimi-kentän.
+Models.py tiedostoon määritin ohjelman 'modelit', komennolla ``` micro crm/models.py ```. Tiedostoon luotiin Customers-luokka ja sen tietueet. Ohjeesta poiketen, sovelsin tässä kohtaa ja lisäsin muitakin kuin nimi-kentän.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a15.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a15.png)
 
-Kun tiedostoon oli määritykset tehty ja tallennettu, päivitin muutokset serverille ajamalla komennot ```./manage.py makemigrations``` ja ```./manage.py migrate```. Uusi tietokanta piti vielä rekisteröidä komennolla ```micro crm/admin.py````. Tiedostoon tehtiin alla näkyvät päivitykset.
+Kun tiedostoon oli määritykset tehty ja tallennettu, päivitin muutokset serverille ajamalla komennot ```./manage.py makemigrations``` ja ```./manage.py migrate```. Uusi tietokanta piti vielä rekisteröidä komennolla ```micro crm/admin.py```. Tiedostoon tehtiin alla näkyvät päivitykset.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a16.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a16.png)
 
@@ -101,7 +100,7 @@ Kun muutokset oli tehty models.py-tiedostoon, ohjelma listasi asiakkaat oikein, 
 
 ### b) Tee Djangon tuotantotyyppinen asennus
 
-Jatkoin b-tehtävään suoraan aiemmasta tehtävästä, hyödyntämällä samaa virtuaalikonetta. Noudatin tässä tehtävässä Teron tekemää ohjetta 'Deploy Django 4 - Production Install'. Loin ensiksi kansion 'publicwsgi/sammyc0de/static/' /home/sami -kansion alle, jonka virtual hostin config-tiedoston sammyc0de.conf. Config-tiedostoon tein määritykset ohjeen mukaisesti.
+Jatkoin b-tehtävään suoraan aiemmasta tehtävästä, hyödyntämällä samaa virtuaalikonetta. Noudatin tässä tehtävässä Teron tekemää ohjetta 'Deploy Django 4 - Production Install'. Loin ensiksi /home/sami -kansion alle kansiot 'publicwsgi/sammyc0de/static/'. Seuraavaksi tein virtual hostin config-tiedoston sammyc0de.conf ja config-tiedostoon tein määritykset ohjeen mukaisesti.
 
 Jostain syystä en saanut näkymään index-sivun tekstiä 'Statically see you at sammyc0de', vaikka olin aiemmin poistanut käytöstä oletus sivun komennolla ```sudo a2dissite 000-default.conf```
 
@@ -113,7 +112,7 @@ Koska sivu ei näkynyt, päätin käydä katsomassa onko virtuaalikoneella muita
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b3.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b3.png)
 
-Seuraavaksi palasin takaisin publicwsgi-kansioon ja loin sinne env-kansion kommennolla virtualenv -p python3 --system-site-packages env
+Seuraavaksi palasin takaisin publicwsgi-kansioon ja loin sinne env-kansion kommennolla  ```virtualenv -p python3 --system-site-packages env ```.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b4.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b4.png)
 
