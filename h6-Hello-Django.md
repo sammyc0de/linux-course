@@ -21,7 +21,7 @@ Olin asentanut aiempia tehtäviä varten VirtualBoxin virtuaalikoneen tietokonee
 
 Virtuaalikone ei ollut hetkeen päällä joten ajoin koneeseen päivitykset komennolla ```supo apt-get update -y```. Kun päivitykset oli asennettu, lähdin etenemään Teron ohjeen mukaan "Django 4 Instant Customer Database Tutorial".
 
-Aloitan kommennolla ```sudo apt-get -y install virtualenv```, joka asensi kehitysympäristön.
+Aloitin kommennolla ```sudo apt-get -y install virtualenv```, joka asensi kehitysympäristön.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a3.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a3.png)
 
@@ -97,6 +97,10 @@ Määritin tiedostoon että listassa asiakkaat näkyvät sukunimen ja etunimen p
 Kun muutokset oli tehty models.py-tiedostoon, ohjelma listasi asiakkaat oikein, määritetyllä tavalla. 
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a22.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a22.png)
+
+Kokeilin vielä luoda uuden käyttäjän 'admin', jolle annoin nimen mukaisesti admin-oikeudet. Loin uuden käyttäjä kohdan 'Authentication and authorization' alta ja sieltä kohdasta 'Users' '+ Add'. Kirjautuminen tunnuksella onnistui, käyttäjällä admin-oikeudet toimi. 
+
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a23.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a23.png)
 
 ### b) Tee Djangon tuotantotyyppinen asennus
 
