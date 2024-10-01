@@ -19,7 +19,7 @@ Olin asentanut aiempia tehtäviä varten VirtualBoxin virtuaalikoneen tietokonee
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-a2.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-a2.png)
 
-Virtuaalikone ei ole ollut hetkeen päällä joten ajoin koneeseen päivitykset komennolla ```supo apt-get update -y```. Kun päivitykset oli asennettu, lähdin etenemään Teron ohjeen mukaan "Django 4 Instant Customer Database Tutorial".
+Virtuaalikone ei ollut hetkeen päällä joten ajoin koneeseen päivitykset komennolla ```supo apt-get update -y```. Kun päivitykset oli asennettu, lähdin etenemään Teron ohjeen mukaan "Django 4 Instant Customer Database Tutorial".
 
 Aloitan kommennolla ```sudo apt-get -y install virtualenv```, joka asensi kehitysympäristön.
 
@@ -100,11 +100,11 @@ Kun muutokset oli tehty models.py-tiedostoon, ohjelma listasi asiakkaat oikein, 
 
 ### b) Tee Djangon tuotantotyyppinen asennus
 
-Jatkoin b-tehtävään suoraan aiemmasta tehtävästä, hyödyntämällä samaa virtuaalikonetta. Noudatin tässä tehtävässä Teron tekemää ohjetta 'Deploy Django 4 - Production Install'. Loin ensiksi /home/sami -kansion alle kansiot 'publicwsgi/sammyc0de/static/'. Seuraavaksi tein virtual hostin config-tiedoston sammyc0de.conf ja config-tiedostoon tein määritykset ohjeen mukaisesti.
-
-Jostain syystä en saanut näkymään index-sivun tekstiä 'Statically see you at sammyc0de', vaikka olin aiemmin poistanut käytöstä oletus sivun komennolla ```sudo a2dissite 000-default.conf```
+Jatkoin b-tehtävään suoraan aiemmasta tehtävästä, hyödyntämällä samaa virtuaalikonetta. Noudatin tässä tehtävässä Teron tekemää ohjetta 'Deploy Django 4 - Production Install', mutta soveltaen koska osa määrityksistä tai asennuksista oli jo tehty aiemmin virtuaalikoneelle. Loin ensiksi /home/sami -kansion alle kansiot 'publicwsgi/sammyc0de/static/'. Seuraavaksi tein virtual hostin config-tiedoston sammyc0de.conf komennolla ```sudoedit /etc/apache2/sites-available/sammyc0de.conf``` ja config-tiedostoon tein määritykset ohjeen mukaisesti.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b1.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b1.png)
+
+Jostain syystä en saanut näkymään index-sivun tekstiä 'Statically see you at sammyc0de' komennolla ```curl http://localhost/static/```, jonka olin aiemmin määrittänyt. Olin myös aiemmin poistanut käytöstä oletus sivun komennolla ```sudo a2dissite 000-default.conf```. Komento ```/sbin/apache2ctl configtest``` sen sijaan meni läpi ja kuittasi että syntaksi ok.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b2.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b2.png)
 
@@ -112,38 +112,44 @@ Koska sivu ei näkynyt, päätin käydä katsomassa onko virtuaalikoneella muita
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b3.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b3.png)
 
-Seuraavaksi palasin takaisin publicwsgi-kansioon ja loin sinne env-kansion kommennolla  ```virtualenv -p python3 --system-site-packages env ```.
+Seuraavaksi menin publicwsgi-kansioon ja loin sinne env-kansion kommennolla  ```virtualenv -p python3 --system-site-packages env ```. Sain aktivoitua uuden ympäristön komennolla ```source env/bin/activate``` kuten aiemminkin ja komennolla ```which pip``` sain näkyviin virtuaaliympäristön polun. Loin micro-editorilla tekstitiedoston, joka sisälsi sanan "django" ja asensin sen avulla Djangon version 5.1.1. 
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b4.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b4.png)
 
-Kopioisin a-tehtävässä tehdyn projektin kansion publicwsgi alle jonka jälkeen muutin Apachen config-tieodoston sammyc0de.conf  ohjeen mukaisesti.
+Kopioisin a-tehtävässä tehdyn CRM-projektin kansion publicwsgi alle jonka jälkeen muutin Apachen config-tiedoston sammyc0de.conf ohjeen mukaisesti.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b5.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b5.png)
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b6.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b6.png)
 
-Seuraavaksi asensin Apachen WSGI moduliin kuvasssa näkyvällä komennolla. Tarkistin syntaksin kommennolla ``` /sbin/apache2ctl configtest``` joka näytti ok, jonka jälkeen Apachen uudelleen käynnistys. Komento ```curl -s localhost|grep title``` ei mennyt läpi vaan herjasi virhettä '500 Internal Server Error'. 
-Tässä kohtaa tuli mieleen tarkistaa tulikohan kaikki määritetty oikein sammyc0de.conf tiedostoon. Tarkistin tiedostoon määritetyt polut kuvakaappausta vasten ja huomasin että TVENV muuttujaan on määritetty polku väärin. Olin kopioinut python kansion nimen suoraan ohjeesta, mutta todellisuudessa kansion nimi olikin python3.11, eikä python3.9.
+Seuraavaksi asensin Apachen WSGI moduliin kuvasssa näkyvällä komennolla.
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b7.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b7.png)
 
+Tarkistin syntaksin kommennolla ``` /sbin/apache2ctl configtest``` joka näytti ok, jonka jälkeen Apachen uudelleen käynnistys. Komento ```curl -s localhost|grep title``` ei mennyt läpi vaan herjasi virhettä '500 Internal Server Error'. 
+Tässä kohtaa tuli mieleen tarkistaa tulikohan kaikki määritetty oikein sammyc0de.conf tiedostoon. Tarkistin tiedostoon määritetyt polut kuvakaappausta vasten ja huomasin että TVENV muuttujaan on määritetty polku väärin. Olin kopioinut python kansion nimen suoraan ohjeesta, mutta todellisuudessa kansion nimi olikin python3.11, eikä python3.9. Kävin korjaamassa polun Apachen config-tiedostoon sammyc0de.conf.
+
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b8.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b8.png)
 
-Kokeilin uudestaan curl-komentoa ja nyt ei tullut enää virheilmoitusta. Tällä kertaa herjasi 'disallowedhost' ilmoitusta mutta olin aiemmin määrittänyt että vain ip-osoitteella pääsee näkemään sivun. Testasin sivua toisesta koneesta selaimella, mutta näytti jostain syystä vanhoja sivuja. Sivut olivat aktivoituneet uudestaan joten otin ne poiskäytöstä kuvassa näkyvillä komennoilla. Sen jälkeen apachen uudelleen käynnistys ja nyt näkyi Django-sivu oikein selaimessa toisella koneella, virtuaalikoneen ip-osoitteella. Curl-komentokin meni läpi, kun vaihdoin localhostin tilalle virtuaalikoneen ip-osoitteen. 
+Kokeilin uudestaan curl-komentoa ja nyt ei tullut enää virheilmoitusta. Tällä kertaa herjasi 'disallowedhost' ilmoitusta mutta olin aiemmin määrittänyt että vain ip-osoitteella pääsee näkemään sivun. Komennolla ```curl -sI localhost|grep Server``` tarkistin että kyseessä on Apache, eikä mikään development server. 
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b9.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b9.png)
 
-![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b10.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b10.png)
+Testasin sivua toisesta koneesta selaimella, mutta näytti jostain syystä vanhoja sivuja. Sivut olivat aktivoituneet uudestaan joten otin ne pois käytöstä kuvassa näkyvillä komennoilla. Sen jälkeen apachen uudelleen käynnistys ja nyt näkyi Django-sivu oikein selaimessa toisella koneella, virtuaalikoneen ip-osoitteella. Curl-komentokin meni läpi, kun vaihdoin localhostin tilalle virtuaalikoneen ip-osoitteen. 
+
+![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b10-1.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b10-1.png)
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b11.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b11.png)
 
-Seuraavaksi jatkoin ohjeen mukaisesti, muokkaamalla settings.py tiedostoa jossa määritin  debug-tilan pois päältä ja lisäsin localhostin sallittujen listalle. Tiedoston tallennuksen jälkeen ajoin touch-komennon wsgi.py tiedostolle ja käynnistin apachen uudelleen. Komento ``` curl -s localhost|grep title``` antoi 'Not found' tuloksen kuten ohjeessakin, mutta toisella koneella selain näytti sivun. 
+Seuraavaksi jatkoin ohjeen mukaisesti, muokkaamalla settings.py tiedostoa jossa määritin  debug-tilan pois päältä ja lisäsin localhostin sallittujen listalle. 
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b12.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b12.png)
 
+Tiedoston tallennuksen jälkeen ajoin touch-komennon wsgi.py tiedostolle ja käynnistin apachen uudelleen. Komento ``` curl -s localhost|grep title``` antoi 'Not found' tuloksen kuten ohjeessakin, mutta toisella koneella selain näytti sivun. 
+
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b13.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b13.png)
 
-Muotoilut eivät näkyväät vielä oikein sivulla, joten muokkasin settings.py tiedostoa ohjeen mukaan. Lisäsin sinne rivit 'import os' ja 'STATIC_ROOT = os.path.join(BASE_DIR, 'static/')'. Lopuksi vielä komennon ```./manage.py collectstatic ``` ajo, joka korjasi muotoilut oikeaksi. Nyt näkyi selaimessa sivu oikein. 
+Muotoilut eivät näkyneet vielä oikein sivulla, joten muokkasin settings.py tiedostoa ohjeen mukaan. Lisäsin sinne rivit 'import os' ja 'STATIC_ROOT = os.path.join(BASE_DIR, 'static/')'. Lopuksi vielä komennon ```./manage.py collectstatic ``` ajo, joka korjasi muotoilut oikeaksi. Nyt näkyi selaimessa sivu oikein. 
 
 ![https://github.com/sammyc0de/linux-course/blob/a4b5ab180a34bdbcf3b329f527b0e28e15d585f3/Kuvat/h6/h6-b14.png](https://github.com/sammyc0de/linux-course/blob/main/Kuvat/h6/h6-b14.png)
 
@@ -158,7 +164,7 @@ Muotoilut eivät näkyväät vielä oikein sivulla, joten muokkasin settings.py 
 - Karvinen, Tero. Linux Palvelimet 2024 alkusyksy. https://terokarvinen.com/linux-palvelimet/#laksyt-
 - Karvinen 2021. Django 4 Instant Customer Database Tutorial. https://terokarvinen.com/2022/django-instant-crm-tutorial/
 - Karvinen 2021. Deploy Django 4 - Production Install. https://terokarvinen.com/2022/deploy-django/
-- Django. 5.1 documentation. Sjango-admin and manage.py. https://docs.djangoproject.com/en/5.1/ref/django-admin/
+- Django. 5.1 documentation. Django-admin and manage.py. https://docs.djangoproject.com/en/5.1/ref/django-admin/
 - Django. 5.0 documentation. Settings. https://docs.djangoproject.com/en/5.0/ref/settings/#std-setting-ALLOWED_HOSTS
 - Django. 5.1 documentation. Models. https://docs.djangoproject.com/en/5.1/topics/db/models/
 - Freecodecamp 2023. Django Model Fields – Common Use Cases and How They Work. https://www.freecodecamp.org/news/common-django-model-fields-and-their-use-cases/
