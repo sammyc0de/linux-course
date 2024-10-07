@@ -7,7 +7,7 @@
 - SSD: WD Black SN770 1TB (Windows 11), WD Blue SN580 1TB (Debian 12)
 - Virtualisointi: VirtualBox Debian 12 käyttöjärjestelmässä
 
-#### Virtuaalikone, jossa ajettiin osa osion C-testeistä
+#### Virtuaalikone, jossa ajettiin osa osion C-testeistä ajettiin
 
 - 2 CPU, 4 GB muistia, 30 GB HDD, Debian 12
 
